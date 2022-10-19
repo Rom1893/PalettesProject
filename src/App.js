@@ -2,6 +2,7 @@ import './Styles/App.css';
 import { Component } from 'react';
 import Palette from './components/Palette';
 import SeedColors from './Seeds/SeedColors';
+import { generatePalette } from './Seeds/colorHelpers';
 
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
 
     return (
       <div className=''>
-        <Palette {...SeedColors[4]} />
+        <Palette palette={generatePalette(SeedColors[4])} />
       </div>
     );
   }
