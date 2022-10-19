@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import Slider, { Range } from 'rc-slider';
+import "rc-slider/assets/index.css"
+import "../Styles/NavBar.css"
 
 class NavBar extends Component {
 
@@ -7,26 +10,21 @@ class NavBar extends Component {
     render() {
 
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Cat App</a>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <NavLink exact className="nav-link" aria-current="page" to="/cats">Home</NavLink>
-                            </li>
-                            {this.props.cats.map((m, i) => (
-                                <li key={i} className="nav-item">
-                                    <NavLink exact className="nav-link" aria-current="page" to={`/cats/${m.name}`} >{m.name}</NavLink>
-                                </li>
-                            ))}
-                        </ul>
+            <header className='Navbar'>
+                <div className='logo'>
+                    <a href='#'>ColorPicker</a>
+                </div>
+                <div className='slider-container'>
+                    <span>Level: {this.props.level}</span>
+                    <div className='slider'>
+                        <Slider
+                            defaultValue={this.props.level}
+                            min={100} max={900}
+                            step={100}
+                            onAfterChange={this.props.changeLevel} />
                     </div>
                 </div>
-            </nav >
+            </header>
         )
     }
 }
