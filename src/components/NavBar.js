@@ -3,9 +3,21 @@ import { Link, NavLink } from 'react-router-dom';
 import Slider, { Range } from 'rc-slider';
 import "rc-slider/assets/index.css"
 import "../Styles/NavBar.css"
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
 
 class NavBar extends Component {
 
+    state={
+        format: "hex"
+    }
+
+    changeFormat = (e) => {
+        this.setState({format: e.target.value})
+        this.props.changeFormat(e.target.value)
+    }
 
     render() {
 
@@ -23,6 +35,13 @@ class NavBar extends Component {
                             step={100}
                             onAfterChange={this.props.changeLevel} />
                     </div>
+                </div>
+                <div className='select-container'>
+                    <Select value={this.state.format} onChange={this.changeFormat}>
+                        <MenuItem value="hex">Hex - #ffffff</MenuItem>
+                        <MenuItem value="rgb">Rgb - (255, 255, 255)</MenuItem>
+                        <MenuItem value="rgba">Rgba - (255, 255, 255, 1.0)</MenuItem>
+                    </Select>
                 </div>
             </header>
         )
