@@ -5,7 +5,9 @@ import { withStyles } from "@material-ui/styles";
 import styles from "../Styles/PaletteListStyles";
 
 class PaletteList extends Component {
-
+  goToPalette = (id) => {
+    this.props.history.push(`/palette/${id}`)
+  }
 
 
   render() {
@@ -19,7 +21,7 @@ class PaletteList extends Component {
           </nav>
           <div className={classes.palettes}>
             {this.props.palettes.map(m => (
-              <MiniPalette {...m} />
+              <MiniPalette {...m} goToPalette={() =>this.goToPalette(m.id)} />
             ))}
           </div>
         </div>
