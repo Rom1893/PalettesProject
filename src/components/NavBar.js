@@ -3,11 +3,11 @@ import { Link, NavLink } from 'react-router-dom';
 import Slider, { Range } from 'rc-slider';
 import "rc-slider/assets/index.css"
 import "../Styles/NavBar.css"
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import Snackbar from '@mui/material/Snackbar';
-import CloseIcon from '@mui/icons-material/Close';
-import IconButton from '@mui/material/IconButton';
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import Snackbar from "@material-ui/core/Snackbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
 
 class NavBar extends Component {
 
