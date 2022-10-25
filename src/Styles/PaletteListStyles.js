@@ -16,9 +16,12 @@ export default {
     alignItems: "flex-start",
     justifyContent: "center",
     /* background by SVGBackgrounds.com */
-    backgroundColor: "#394bad",
+    backgroundColor: "#ff9d00",
     backgroundImage: `url(${bg})`,
-    overflow: "scroll"
+    backgroundAttachment: "fixed",
+    backgroundSize: "cover",
+    overflow: "scroll",
+    
   },
   heading: {
     fontSize: "2rem"
@@ -61,3 +64,5 @@ export default {
     }
   }
 };
+
+
