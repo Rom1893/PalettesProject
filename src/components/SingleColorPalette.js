@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import ColorBox from "./ColorBox"
 import "../Styles/Palette.css"
+import NavBar from './NavBar'
+import PaletteFooter from './PaletteFooter';
 
 class SingleColorPalette extends Component{
+
+    state ={
+        format: "hex"
+    }
 
     gatherShades = (palette, colorToFilterBy) => {
         let shades = [];
         let allColors = palette.colors;
 
+    //Iterate inside the same object (for let in). [key] returns a string, thats why you dont use Allcolors.key
         for(let key in allColors) {
             shades = shades.concat(
                 allColors[key].filter(color => color.id === colorToFilterBy)
@@ -20,18 +27,27 @@ class SingleColorPalette extends Component{
 
     _shades = this.gatherShades(this.props.palette, this.props.colorId);
 
+    changeFormat = (value) => {
+        this.setState({ format: value })
+    }
+
     render() {
 
         const colorBoxes = this._shades.map((color) => (
-        <ColorBox key={color.name} name={color.name} background={color.hex}/>
+        <ColorBox key={color.name} name={color.name} background={color[this.state.format]}/>
         ))
 
         return(
             <div className='Palette'>
+                <NavBar changeFormat={this.changeFormat} showSlider={false}/>
                 <h1>haha</h1>
                 <div className='Palette-colors'>
                     {colorBoxes}
                 </div>
+                <PaletteFooter 
+                paletteName={this.props.palette.paletteName}
+                emoji={this.props.palette.emoji}
+                />
             </div>
         )
     }

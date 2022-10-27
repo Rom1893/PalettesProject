@@ -34,7 +34,7 @@ class NavBar extends Component {
                 <div className='logo'>
                     <Link to="/">ColorPicker</Link>
                 </div>
-                <div className='slider-container'>
+                {this.props.showSlider && <div className='slider-container'>
                     <span>Level: {this.props.level}</span>
                     <div className='slider'>
                         <Slider
@@ -44,6 +44,7 @@ class NavBar extends Component {
                             onAfterChange={this.props.changeLevel} />
                     </div>
                 </div>
+                }
                 <div className='select-container'>
                     <Select value={this.state.format} onChange={this.changeFormat}>
                         <MenuItem value="hex">Hex - #ffffff</MenuItem>
@@ -61,16 +62,16 @@ class NavBar extends Component {
                     }}
                     onClose={this.closeSnackbar}
                     action={[
-                        <IconButton onClick={this.closeSnackbar} 
-                        color="inherit"
-                        key="close"
-                        aria-label="close"
+                        <IconButton onClick={this.closeSnackbar}
+                            color="inherit"
+                            key="close"
+                            aria-label="close"
                         >
                             <CloseIcon />
                         </IconButton>
                     ]}
 
-                
+
                 />
             </header>
         )
