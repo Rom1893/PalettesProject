@@ -10,7 +10,7 @@ import SingleColorPalette from './components/SingleColorPalette';
 
 class App extends Component {
 
-  findPatelle = (id) => {
+  findPalette = (id) => {
     return SeedColors.find(function(palette){
       return palette.id === id
     })
@@ -21,15 +21,28 @@ class App extends Component {
 
     return (
         <Switch>
+          {/*Route for passing color seeds to the paletteList Component */}
           <Route exact path="/" render={(routeProps)=><PaletteList palettes={SeedColors} {...routeProps}/>}/>
+
+          {/*Route that passes down generatePalette function into a route that matches the id of the palette */}
           <Route 
           exact 
           path="/palette/:id" 
           render={(routeProps)=> 
           <Palette 
-          palette ={generatePalette(this.findPatelle(routeProps.match.params.id))}/> }
+          palette ={generatePalette(this.findPalette(routeProps.match.params.id))}/> }
           />
-          <Route exact path="/palette/:paletteId/:colorId" render={() => <h1>single color palette</h1>}/>
+
+          <Route 
+          exact 
+          path="/palette/:paletteId/:colorId" 
+          render={(routeProps)=> 
+            <SingleColorPalette 
+            palette ={generatePalette(this.findPalette(routeProps.match.params.paletteId))}
+            colorId ={routeProps.match.params.colorId}  
+            /> }
+          
+          />
         </Switch>
 
     );

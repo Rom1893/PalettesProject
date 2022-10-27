@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import Slider, { Range } from 'rc-slider';
+import { Link } from 'react-router-dom';
+import Slider from 'rc-slider';
 import "rc-slider/assets/index.css"
 import "../Styles/NavBar.css"
 import Select from "@material-ui/core/Select";
