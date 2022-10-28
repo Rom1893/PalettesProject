@@ -28,6 +28,7 @@ class Palette extends Component {
             key={m.id} 
             id={m.id} 
             paletteId={this.props.palette.id}
+            showingFullPalette
             />
         ))
 
