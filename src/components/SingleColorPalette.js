@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import ColorBox from "./ColorBox"
-import "../Styles/Palette.css"
 import NavBar from './NavBar'
 import PaletteFooter from './PaletteFooter';
+import { Link } from 'react-router-dom';
 
 class SingleColorPalette extends Component{
 
@@ -38,11 +38,13 @@ class SingleColorPalette extends Component{
         ))
 
         return(
-            <div className='Palette'>
+            <div className='SingleColorPalette Palette'>
                 <NavBar changeFormat={this.changeFormat} showSlider={false}/>
-                <h1>haha</h1>
                 <div className='Palette-colors'>
                     {colorBoxes}
+                    <div className='go-back ColorBox'>
+                        <Link to={`/palette/${this.props.palette.id}`} className="back-button">Go Back</Link>
+                    </div>
                 </div>
                 <PaletteFooter 
                 paletteName={this.props.palette.paletteName}
