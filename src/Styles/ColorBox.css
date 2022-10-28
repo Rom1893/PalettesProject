@@ -5,7 +5,7 @@
     display: inline-block;
     position: relative;
     cursor: pointer;
-    margin-bottom: -3.5PX;
+    margin-bottom: -4.5PX;
 }
 
 .SingleColorPalette .ColorBox{
@@ -13,7 +13,7 @@
 }
 
 .ColorBox.go-back{
-    background-color: black;
+    background-color: rgba(0, 0, 0, .5)
 }
 
 .copy-button, .back-button{
@@ -55,6 +55,15 @@
     text-transform: uppercase;
     font-size: 12px;
 }
+
+.light-text{
+    color: white;
+}
+
+.ColorBox .dark-text{
+    color: black;
+}
+
 
 .see-more {
     background: rgba(255, 255, 255, 0.3);
