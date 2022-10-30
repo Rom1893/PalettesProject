@@ -1,7 +1,8 @@
 import sizes from "./sizes";
 export default {
   Palette: {
-    height: "100vh",
+    height: "calc(100vh - 16px)",
+    width: "calc(100vw - 20px)",
     display: "flex",
     flexDirection: "column"
   },
