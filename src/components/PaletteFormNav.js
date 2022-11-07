@@ -16,12 +16,19 @@ import PaletteMetaForm from './PaletteMetaForm';
 
 class PaletteFormNav extends Component {
 
-    
+    state={
+        formShowing: false
+    }
+
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+
+    handleClickOpen = () => {
+        this.setState({ formShowing: true });
+    };
 
     render() {
         const { classes, open } = this.props;
@@ -45,22 +52,32 @@ class PaletteFormNav extends Component {
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="h6" color="inherit" noWrap>
-                            Create a new Palette
+                            Create a New Palette
                         </Typography>
                     </Toolbar>
-                    <div className={classes.navBtns}> 
-                        <PaletteMetaForm
-                        palettes={this.props.palettes}
-                        handleSubmit={this.props.handleSubmit}
-                        />
+                    <div className={classes.navBtns}>
                         <Link to="/">
                             <Button
                                 variant="contained"
                                 color="secondary"
+                                className={classes.button}
                             >Go back</Button>
                         </Link>
+                        <Button 
+                        variant="contained" 
+                        color="primary" 
+                        onClick={this.handleClickOpen}
+                        className={classes.button}
+                        >
+                            Save 
+                        </Button>
                     </div>
                 </AppBar>
+
+                {this.state.formShowing && <PaletteMetaForm
+                            palettes={this.props.palettes}
+                            handleSubmit={this.props.handleSubmit}
+                        />}
             </div>
         )
     }
