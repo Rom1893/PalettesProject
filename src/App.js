@@ -19,6 +19,12 @@ class App extends Component {
     }
   }
 
+  deletePalette = (id) => {
+    this.setState({
+      palettes: this.state.palettes.filter(palette => palette.id !== id)
+    }, this.syncLocalStorage)
+  }
+
 
   findPalette = (id) => {
     return this.state.palettes.find(function (palette) {
@@ -56,7 +62,12 @@ class App extends Component {
         />
 
         {/*Route for passing color seeds to the paletteList Component */}
-        <Route exact path="/" render={(routeProps) => <PaletteList palettes={this.state.palettes} {...routeProps} />} />
+        <Route exact path="/" render={(routeProps) => 
+        <PaletteList 
+        palettes={this.state.palettes} 
+        deletePalette={this.deletePalette}
+        {...routeProps} 
+        />} />
 
         {/*Route that passes down generatePalette function into a route that matches the id of the palette */}
         <Route
