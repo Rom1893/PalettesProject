@@ -22,7 +22,6 @@ class SingleColorPalette extends Component{
                 allColors[key].filter(color => color.id === colorToFilterBy)
             );
         }
-        console.log(shades.slice(1))
         return shades.slice(1)
         
     }
