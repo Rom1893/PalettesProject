@@ -20,7 +20,7 @@ export default {
     backgroundImage: `url(${bg})`,
     backgroundAttachment: "fixed",
     backgroundSize: "cover",
-    overflow: "scroll",
+    overflow: "hidden",
     
   },
   heading: {
